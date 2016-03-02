@@ -1,0 +1,32 @@
+<div ng-controller ='dashboardController'>
+<div id='content' style='margin-top: 20px'>
+	<div class='row'>
+		<div class='col-md-8 col-md-offset-1'>
+				<div class='row'>
+				<h4>New Products</h4>
+					<div ng-repeat ='product in products | limitTo:product_limit | filter: product_filter' style='height:180px; width: 170px; display: inline-block; margin: 10px'>
+						<img style='width:170px; height: 110px' ng-src='{{product.url}}'>
+						<h5>{{product.name}}</h5>
+						<h5>{{product.quantity}} left</h5>
+					</div>
+					<a ng-click='moreProducts()'>Show More</a>
+				</div>
+				<div class='row'>
+					<h4>Recent Orders</h4>
+					<div ng-repeat ='order in orders | limitTo:order_limit'>
+						<h5 am-time-ago='main.time'>{{order.customername}} purchased {{order.quantity}} {{order.product}}...(<span am-time-ago='order.date'></span>)</h5>
+					</div>
+					<a ng-click = 'moreOrders()'>Show all orders..</a>
+				</div>
+				<br>
+				<div class='row'>
+				<h4>Recent Customers</h4>
+					<div ng-repeat ='customer in customers | limitTo:customer_limit'>
+						<h5>{{customer.name}} joined the store.(<span am-time-ago='customer.date'></span>)</h5>
+					</div>
+					<a ng-click = 'moreCustomers()'>Show all customers..</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

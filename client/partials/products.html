@@ -1,0 +1,42 @@
+<div ng-controller='productsController'>
+	<div id='content' style='margin-top: 20px'>
+		<div class='row'>
+			<div class='col-md-3'>
+				<input type='text' class='form-control input-sm' ng-model='product_filter' placeholder='Search Product'>
+				<br>
+				<h4>Add a New Product</h4>
+				<form>
+					<div class ='form-group'>
+						<label for='name'>Product Name:</label>
+						<input type='text' ng-model='newproduct.name'class='form-control input-sm' placeholder='Name..'>
+					</div>
+					<div class='form-group'>
+						<label for='name'>Image Url:</label>
+						<input type='text' ng-model='newproduct.url'class='form-control input-sm' value='http://'>
+					</div>
+					<div class='form-group'>
+						<label for='name'>Description:</label>
+						<textarea rows='5' ng-model='newproduct.description'class='form-control input-sm' value='http://'></textarea>
+					</div>
+					<div class='form-group'>
+						<label for='name'>Initial Quantity:</label>
+						<select style='width: 25%' ng-model='newproduct.quantity' class='form-control input-sm'>
+							<option ng-repeat='n in range(1, 100)'>{{n}}</option>
+						</select>
+					</div>
+					<button ng-click='addProduct()' class='btn btn-primary'>Create Product</button>
+				</form>
+			</div>
+			<div class='col-md-8 col-md-offset-1'>
+				<div class='row'>
+					<h4>Products</h4>
+					<div ng-repeat ='product in products | filter: product_filter' style='height:180px; width: 170px; display: inline-block; margin: 10px'>
+						<img style='width:170px; height: 110px' ng-src='{{product.url}}'>
+						<h5>{{product.name}}</h5>
+						<h5>{{product.quantity}} left</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
