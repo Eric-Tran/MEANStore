@@ -4,7 +4,7 @@
 		<div class='col-md-8 col-md-offset-1'>
 				<div class='row'>
 				<h4>New Products</h4>
-					<div ng-repeat ='product in products | limitTo:product_limit | filter: product_filter' style='height:180px; width: 170px; display: inline-block; margin: 10px'>
+					<div ng-repeat ='product in products | limitTo:product_limit | filter: product_filter' style='height:200px; width: 170px; display: inline-block; margin: 10px'>
 						<img style='width:170px; height: 110px' ng-src='{{product.url}}'>
 						<h5>{{product.name}}</h5>
 						<h5>{{product.quantity}} left</h5>
