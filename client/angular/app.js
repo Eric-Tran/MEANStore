@@ -1,6 +1,9 @@
 var myApp = angular.module('myApp', ['ngRoute', 'angularMoment']);
 myApp.config(function ($routeProvider) {
 	$routeProvider
+		.when('/', {
+			templateUrl: '/partials/dashboard.html'
+		})
 		.when('/dashboard', {
 			templateUrl: '/partials/dashboard.html'
 		})
